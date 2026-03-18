@@ -383,9 +383,13 @@ def cmd_format(text: str, papers_by_key: dict, fmt='text'):
         print(f"{'='*60}")
         for entry in bibliography:
             print(entry)
+        
+        # Ensure output is flushed immediately
+        sys.stdout.flush()
             
     if fmt == 'json':
         print(json.dumps(all_out, ensure_ascii=False, indent=2))
+        sys.stdout.flush()
 
 def main():
     parser = argparse.ArgumentParser(description='学术论文引用关联工具（OpenAlex 版）')
